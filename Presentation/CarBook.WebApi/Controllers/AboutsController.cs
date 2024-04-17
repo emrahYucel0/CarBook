@@ -10,7 +10,7 @@ namespace CarBook.WebApi.Controllers
     [ApiController]
     public class AboutsController : ControllerBase
     {
-        private readonly CreateAboutCommandHandler _createCommandHandler;
+        private readonly CreateAboutCommandHandler _createAboutCommandHandler;
         private readonly GetAboutByIdQueryHandler _getAboutByIdQueryHandler;
         private readonly GetAboutQueryHandler _getAboutQueryHandler;
         private readonly UpdateAboutCommandHandler _updateAboutCommandHandler;
@@ -22,7 +22,7 @@ namespace CarBook.WebApi.Controllers
             UpdateAboutCommandHandler updateAboutCommandHandler, 
             RemoveAboutCommandHandler removeAboutCommandHandler)
         {
-            _createCommandHandler = createCommandHandler;
+            _createAboutCommandHandler = createCommandHandler;
             _getAboutByIdQueryHandler = getAboutByIdQueryHandler;
             _getAboutQueryHandler = getAboutQueryHandler;
             _updateAboutCommandHandler = updateAboutCommandHandler;
@@ -46,8 +46,8 @@ namespace CarBook.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateAbout(CreatAboutCommand command)
         {
-            await _createCommandHandler.Handle(command);
-            return Ok("Hakkımda Bilgisi Eklendi");
+            await _createAboutCommandHandler.Handle(command);
+            return Ok("Hakkımda Bilgi Eklendi");
         }
 
         [HttpDelete]
