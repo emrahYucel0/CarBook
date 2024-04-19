@@ -44,7 +44,7 @@ namespace CarBook.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAbout(CreatAboutCommand command)
+        public async Task<IActionResult> CreateAbout(CreateAboutCommand command)
         {
             await _createAboutCommandHandler.Handle(command);
             return Ok("Hakkımda Bilgi Eklendi");

@@ -13,7 +13,7 @@ public class CreateAboutCommandHandler
         _repository = repository;
     }
 
-    public async Task Handle(CreatAboutCommand command)
+    public async Task Handle(CreateAboutCommand command)
     {
         await _repository.CreateAsync(new About
         {
