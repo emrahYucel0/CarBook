@@ -3,19 +3,19 @@ using CarBook.Application.Interfaces.CarInterfaces;
 
 namespace CarBook.Application.Features.CQRS.Handlers.CarHandlers;
 
-public class GetCarWithBrandQueryHandler
+public class GetLast5CarsWithBrandQueryHandler
 {
     private readonly ICarRepository _carRepository;
 
-    public GetCarWithBrandQueryHandler(ICarRepository carRepository)
+    public GetLast5CarsWithBrandQueryHandler(ICarRepository carRepository)
     {
         _carRepository = carRepository;
     }
 
-    public async Task<List<GetCarWithBrandQueryResult>> Handle()
+    public async Task<List<GetLast5CarsWithBrandQueryResult>> Handle()
     {
-        var values = await _carRepository.GetCarsListWithBrands();
-        return values.Select(x => new GetCarWithBrandQueryResult
+        var values = await _carRepository.GetLast5CarsWithBrands();
+        return values.Select(x => new GetLast5CarsWithBrandQueryResult
         {
             CarID = x.CarID,
             BrandID = x.BrandID,
